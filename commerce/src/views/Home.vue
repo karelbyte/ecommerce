@@ -13,12 +13,12 @@
                         <v-img
                             class="white--text align-end"
                             height="200px"
-                            src="https://laopinion.com/wp-content/uploads/sites/3/2019/01/shutterstock_1123734482.jpg?quality=80&strip=all&w=940"
+                            :src="item.media"
                         >
                         </v-img>
                         <v-card-text class="text--primary">
-                            <div>Precio</div>
-                            <div>Nombre</div>
+                            <div>{{item.price}}</div>
+                            <div>{{item.name}}</div>
                         </v-card-text>
                         <v-card-actions>
                             <v-btn
@@ -46,6 +46,7 @@
 <script>
 import AppBar from "../components/AppBar";
 import Slides from "../components/Slides";
+import {urlCoreWeb} from "../tools";
 export default {
   name: 'Products',
   components :{
@@ -53,8 +54,20 @@ export default {
   },
   data () {
       return {
-          products: [1,2,3,4]
+          products: []
       }
+  },
+  mounted() {
+      this.getProductList()
+  },
+  methods: {
+      getProductList() {
+          this.axios.get(urlCoreWeb + '/products').then(res => {
+              this.products = res.data.data
+          }).catch(err => {
+              console.log(err)
+          })
+      },
   }
 }
 </script>

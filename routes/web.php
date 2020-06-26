@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::get('products', 'ProductsController@index');
+
 Route::get('{any}', function () {
     return view('app');
 })->where('any','.*');

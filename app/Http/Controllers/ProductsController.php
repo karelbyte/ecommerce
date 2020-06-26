@@ -10,8 +10,8 @@ class ProductsController extends Controller
 {
 
     public function index() {
-        $product = Product::query()->find(6);
-        return response()->json($product->getMedia()->getUrl()); //ProductResource::collection();
+        $products = Product::with('media')->get();
+        return ProductResource::collection($products);
     }
 
 
@@ -20,7 +20,7 @@ class ProductsController extends Controller
        {
            $product = Product::query()->create($request->all());
 
-           $product->addMedia($request->file('media'))->toMediaCollection();;
+           $product->addMedia($request->file('media'))->toMediaCollection('medias');
 
            return response()->json('Producto almacenado con exito!');
 
