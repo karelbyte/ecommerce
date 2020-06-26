@@ -81,17 +81,28 @@ export default {
                    token: res.data.access_token,
                    expired: Math.floor(Date.now() / 1000) + res.data.expires_in
                }
+              this.setAxiosHeaders(passport.token)
                localStorage.setItem('commerce', JSON.stringify(passport))
-               /* this.axios.get('/api/user').then( () => {
+
+               this.axios.get(urlCoreWeb + 'api/user').then(res => {
+                   this.$store.dispatch('setUser', res.data)
                    this.$router.replace({ name: 'Admin' })
                }).catch((er) => {
                    console.log(er)
-               }) */
-              this.$router.replace({ name: 'Admin' })
+               })
            }).catch(er => {
                console.log(er)
            })
-       }
+       },
+       setAxiosHeaders (token) {
+           this.axios.interceptors.request.use((config) => {
+               config.headers.Accept = 'application/json'
+               config.headers.Authorization = 'Bearer ' + token
+               return config
+           }, function (error) {
+               return Promise.reject(error)
+           })
+       },
    }
  }
 </script>

@@ -14,8 +14,8 @@
                  </v-list-item-avatar>
 
                  <v-list-item-content>
-                     <v-list-item-title>Admin</v-list-item-title>
-                     <v-list-item-subtitle>ecommerce</v-list-item-subtitle>
+                     <v-list-item-title>{{user.name}}</v-list-item-title>
+                     <v-list-item-subtitle>{{user.email}}</v-list-item-subtitle>
                  </v-list-item-content>
              </v-list-item>
              <v-divider></v-divider>
@@ -59,18 +59,28 @@
 
 <script>
     import AppBarAdmin from "../components/AppBarAdmin";
+    import {urlCoreWeb} from "../tools";
     export default {
         name: 'Admin',
         components: {
             AppBarAdmin
         },
         data: () => ({
-          drawer: true
+          drawer: true,
+          user: {}
         }),
         methods: {
             goUrl(url) {
-                this.$router.push({path: url})
+               this.$router.push({path: url})
             }
+        },
+        mounted() {
+            this.axios.get(urlCoreWeb + 'api/user').then(res => {
+                this.user = res.data
+                this.$store.dispatch('setUser', res.data)
+            }).catch((er) => {
+                console.log(er)
+            })
         }
     }
 </script>
