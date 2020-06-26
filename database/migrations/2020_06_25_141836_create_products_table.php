@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->string('description');
             $table->double('price');
-            $table->unsignedTinyInteger('status');
+            $table->unsignedTinyInteger('status')->default(1); // ACTIVE
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

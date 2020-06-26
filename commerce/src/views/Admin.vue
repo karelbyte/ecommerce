@@ -5,14 +5,12 @@
          app
          class="indigo darken-4"
          dark
-
      >
          <v-list>
              <v-list-item two-line>
                  <v-list-item-avatar>
-                     <img :src="require('../assets/logo.png')">
+                     <img :src="require('../assets/logo.png')" alt="Admin">
                  </v-list-item-avatar>
-
                  <v-list-item-content>
                      <v-list-item-title>{{user.name}}</v-list-item-title>
                      <v-list-item-subtitle>{{user.email}}</v-list-item-subtitle>
