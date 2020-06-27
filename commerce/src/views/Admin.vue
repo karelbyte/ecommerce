@@ -23,7 +23,7 @@
                          <v-icon>mdi-shopping</v-icon>
                      </v-list-item-icon>
                      <v-list-item-content>
-                         <v-list-item-title>Productos</v-list-item-title>
+                         <v-list-item-title>Products</v-list-item-title>
                      </v-list-item-content>
                  </v-list-item>
                  <v-list-item @click="goUrl('/admin/clients')">
@@ -31,7 +31,7 @@
                          <v-icon>mdi-account-multiple</v-icon>
                      </v-list-item-icon>
                      <v-list-item-content>
-                         <v-list-item-title>Clientes</v-list-item-title>
+                         <v-list-item-title>Clients</v-list-item-title>
                      </v-list-item-content>
                  </v-list-item>
                  <v-list-item @click="goUrl('/admin/users')">
@@ -39,7 +39,7 @@
                          <v-icon>mdi-account-circle</v-icon>
                      </v-list-item-icon>
                      <v-list-item-content>
-                         <v-list-item-title>Usuarios</v-list-item-title>
+                         <v-list-item-title>Users</v-list-item-title>
                      </v-list-item-content>
                  </v-list-item>
              </v-list-item-group>

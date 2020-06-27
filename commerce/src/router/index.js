@@ -13,26 +13,32 @@ Vue.use(VueRouter)
     component: Home
   },
   {
+     path: '/card',
+     name: 'Shoping',
+     component: () => import('@/views/ProductsToBuy.vue')
+   },
+   {
+          path: '/admin',
+          name: 'Admin',
+          component: () => import('@/views/Admin.vue'),
+          children: [
+              { path: 'products', component: () => import('@/views/Products.vue') },
+              { path: 'clients', component: () => import('@/views/Clients.vue')},
+              { path: 'users', component: () => import('@/views/Users.vue') }
+          ],
+          meta: { requiresAuth: true }
+      },
+      {
+          path: '/login',
+          name: 'Login',
+          component: Login
+  },
+  {
     path: '/:product_name',
     name: 'Details',
     component: ProductDetails
   },
-  {
-    path: '/admin',
-    name: 'Admin',
-    component: () => import('@/views/Admin.vue'),
-    children: [
-          { path: 'products', component: () => import('@/views/Products.vue') },
-          { path: 'clients', component: () => import('@/views/Clients.vue')},
-          { path: 'users', component: () => import('@/views/Users.vue') }
-     ],
-     meta: { requiresAuth: true }
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  }
+
 
 ]
 

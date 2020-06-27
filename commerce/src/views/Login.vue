@@ -53,16 +53,16 @@ export default {
        return  {
           valid: false,
           user: {
-              username: 'admin@ecommerce.com',
-              password: 'password'
+              username: '',
+              password: ''
           },
            passwordRules: [
-               v => !!v || 'Password es requerido',
+               v => !!v || 'Password is required.',
            ],
            email: '',
            emailRules: [
-               v => !!v || 'E-mail es requerido',
-               v => /.+@.+\..+/.test(v) || 'El email no es valido',
+               v => !!v || 'E-mail is required.',
+               v => /.+@.+\..+/.test(v) || 'The email is not valid.',
            ]
        }
    },

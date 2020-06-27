@@ -24,10 +24,9 @@
                         <v-card-actions>
                             <v-btn
                                 color="blue"
-                                text
                                 @click="setStok(item)"
                             >
-                                Comprar
+                                ADD TO CARD
                             </v-btn>
 
                             <v-btn
@@ -35,7 +34,7 @@
                                 text
                                 @click="goProductDetail(item.name)"
                             >
-                                Detalles
+                                Learn More
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -51,7 +50,7 @@ import AppBar from "../components/AppBar";
 import Slides from "../components/Slides";
 import {urlCoreWeb} from "../tools";
 export default {
-  name: 'Products',
+  name: 'Home',
   components :{
         AppBar, Slides
   },

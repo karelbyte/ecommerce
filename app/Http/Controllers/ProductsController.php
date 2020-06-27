@@ -44,7 +44,7 @@ class ProductsController extends Controller
         {
            Product::query()->where('id', $id)->update($request->all());
 
-           /* if ($request->hasFile('media')) {
+            if ($request->hasFile('media')) {
 
                 $product = Product::find($id);
 
@@ -53,7 +53,7 @@ class ProductsController extends Controller
                 $media[0]->delete();
 
                 $product->addMedia($request->file('media'))->toMediaCollection('medias');
-            }*/
+            }
 
             return response()->json(Product::find($id));
 
