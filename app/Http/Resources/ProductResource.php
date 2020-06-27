@@ -19,7 +19,7 @@ class ProductResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'description' => $this->description,
-            'price' => number_format($this->price, 2, '.', ''),
+            'price' =>  number_format($this->price, 2, '.', ''),
             'status' => $this->status,
             'media' => count($this->media) > 0 ? $this->media[0]->getUrl() : ''
         ];

@@ -14,6 +14,12 @@ class ProductsController extends Controller
         return ProductResource::collection($products);
     }
 
+    public function show($name)
+    {
+        $products = Product::with('media')->where('name', $name)->first();
+        return ProductResource::make($products);
+    }
+
 
     public function store(Request $request) {
        try

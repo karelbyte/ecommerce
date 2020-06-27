@@ -4,7 +4,7 @@
         <Slides></Slides>
         <v-container>
             <v-row class="text-center">
-                <v-col cols="3" v-for="item in products" :key="item">
+                <v-col cols="3" v-for="item in products" :key="item.id">
                     <v-card
                         class="mx-auto"
                         max-width="300"
@@ -25,6 +25,7 @@
                             <v-btn
                                 color="blue"
                                 text
+                                @click="setStok(item)"
                             >
                                 Comprar
                             </v-btn>
@@ -32,6 +33,7 @@
                             <v-btn
                                 color="blue"
                                 text
+                                @click="goProductDetail(item.name)"
                             >
                                 Detalles
                             </v-btn>
@@ -69,6 +71,13 @@ export default {
               console.log(err)
           })
       },
+      goProductDetail(product){
+          this.$router.push({ name: 'Details', params: { product_name: product } })
+      },
+      setStok(item) {
+          item.cant = 1
+          this.$store.dispatch('setShop', item)
+      }
   }
 }
 </script>
