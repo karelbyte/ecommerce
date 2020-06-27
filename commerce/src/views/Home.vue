@@ -4,18 +4,19 @@
         <Slides></Slides>
         <v-container>
             <v-row class="text-center">
-                <v-col cols="4" v-for="item in products" :key="item">
+                <v-col cols="3" v-for="item in products" :key="item">
                     <v-card
                         class="mx-auto"
-                        max-width="400"
+                        max-width="300"
                         shaped
                     >
                         <v-img
                             class="white--text align-end"
-                            height="200px"
                             :src="item.media"
+                            width="300"
                         >
                         </v-img>
+                        <v-divider></v-divider>
                         <v-card-text class="text--primary">
                             <div>{{item.price}}</div>
                             <div>{{item.name}}</div>
@@ -62,7 +63,7 @@ export default {
   },
   methods: {
       getProductList() {
-          this.axios.get(urlCoreWeb + '/products').then(res => {
+          this.axios.get(urlCoreWeb + 'products').then(res => {
               this.products = res.data.data
           }).catch(err => {
               console.log(err)

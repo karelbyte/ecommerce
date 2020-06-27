@@ -19,9 +19,9 @@ class ProductResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'description' => $this->description,
-            'price' => $this->price,
+            'price' => number_format($this->price, 2, '.', ''),
             'status' => $this->status,
-            'media' => $this->media[0]->getUrl()
+            'media' => count($this->media) > 0 ? $this->media[0]->getUrl() : ''
         ];
     }
 }
