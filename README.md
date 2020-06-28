@@ -6,8 +6,9 @@ I have never used the spatie laravel-medialibrary component, but it is also inte
 3. Run the migrations
 4. Run InitiatorSeeder -> php artisan db: seed --class = InitiatorSeeder
 5. Activate storage -> php artisan storage: link
+6. To manage go to /admin, user: <b>admin@ecommerce.com</b> and password:<b>password</b>
 
-I hope and it works :)
+I hope it works :)
 
 
 Karel Puerto Diaz <br>
